@@ -1,0 +1,39 @@
+- name: mytestplaybook
+  hosts: test1
+  become: 'yes'
+
+  tasks:
+    - name: 'checking connection via ping'
+      action: ping
+
+    - name: 'install unzip'
+      yum:
+        name: unzip
+        state: latest
+
+    - name: 'create directory'
+      file:
+        path: /home/ec2-user/testdir
+        owner: ec2-user
+        group: ec2-user
+        mode: 0777
+	state: directory
+
+    - name: 'create file'
+      file:
+        path: /home/ec2-user/testdir/testing.txt
+        owner: ec2-user
+        group: ec2-user
+        mode: 0666
+	state: touch
+
+    - name: 'copy file'
+      copy:
+        src: /home/ec2-user/testcopy.txt
+        dest: /home/ec2-user/testdir/testcopy.txt
+        owner: ec2-user
+        group: ec2-user
+        mode: 666
+	state: touch
+
+
