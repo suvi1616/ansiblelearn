@@ -1,5 +1,4 @@
 - name: mytestplaybook
-  hosts: test1
   become: 'yes'
 
   tasks:
