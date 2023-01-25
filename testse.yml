@@ -1,0 +1,12 @@
+- name: mytests3playbook
+  hosts: localhost
+  become: 'yes'
+
+  tasks:
+    - name: 'checking connection via ping'
+      action: ping
+
+    - name: 'create s3 bucket'
+      amazon.aws.s3_bucket:
+        name: suvianstestbkt
+        state: present
