@@ -23,6 +23,7 @@
     - name: Print the goutput
       debug:
       msg: "The output is {{ ec2 }}"
+    
     - name: Add new instance to host group
       add_host: hostname={{ ec2.private_ip_address }} groupname=launched
       with_items: ec2.instances
