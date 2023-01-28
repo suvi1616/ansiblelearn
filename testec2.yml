@@ -28,3 +28,16 @@
     - name: Add new instance to host group
       add_host: hostname={{ ec2.instances[0].private_ip_address }} groupname=launched
       with_items: ec2.instances
+
+- name: newplaybook
+  hosts: launched
+  become: 'yes'
+
+  tasks:
+    - name: 'checking connection via ping'
+      action: ping
+
+    - name: 'install unzip'
+      yum:
+        name: unzip
+        state: latest
