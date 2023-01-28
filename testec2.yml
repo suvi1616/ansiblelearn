@@ -20,9 +20,10 @@
         tags:
           Environment: Testing
       register: ec2
-    - name: Print the goutput
+
+    - name: Print the output
       debug:
-      msg: "The output is {{ ec2 }}"
+        msg: "The output is {{ ec2 }}"
     
     - name: Add new instance to host group
       add_host: hostname={{ ec2.private_ip_address }} groupname=launched
