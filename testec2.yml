@@ -21,5 +21,5 @@
           Environment: Testing
       register: ec2
     - name: Add new instance to host group
-      add_host: hostname={{ item.private_ip }} groupname=launched
+      add_host: hostname={{ item.private_ip_address }} groupname=launched
       with_items: ec2.instances
