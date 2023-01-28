@@ -13,7 +13,7 @@
         key_name: "DevOps_Lab"
         vpc_subnet_id: subnet-060c1f8bcdbb27356
         instance_type: t3.small
-        security_group: default
+        security_group: DevOps_Bastion_SG
         network:
           assign_public_ip: true
         image_id: ami-0b0dcb5067f052a63
@@ -41,3 +41,11 @@
       yum:
         name: unzip
         state: latest
+        
+    - name: 'create directory'
+      file:
+        path: /home/ec2-user/testdir
+        owner: ec2-user
+        group: ec2-user
+        mode: 0777
+        state: 'directory'
