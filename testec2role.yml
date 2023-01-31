@@ -3,7 +3,7 @@
   become: 'yes'
 
   roles:
-    - ec2create
+    - { role: ec2create, inst_name: "ansible-test-instance2", inst_class: "t3.small" }
   tasks:
     - name: 'checking connection via ping'
       action: ping

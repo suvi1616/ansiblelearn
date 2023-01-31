@@ -1,10 +1,10 @@
 - name: start an instance with a public IP address
   amazon.aws.ec2_instance:
     region: us-east-1 
-    name: "ansible-test-instance"
+    name: "{{ inst_name }}"
     key_name: "DevOps_Lab"
     vpc_subnet_id: subnet-060c1f8bcdbb27356
-    instance_type: t3.small
+    instance_type: "{{ inst_class }}"
     security_group: DevOps_Bastion_SG
     network:
       assign_public_ip: true
