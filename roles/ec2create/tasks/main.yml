@@ -8,7 +8,7 @@
     security_group: DevOps_Bastion_SG
     network:
       assign_public_ip: true
-      image_id: ami-0b0dcb5067f052a63
+    image_id: ami-0b0dcb5067f052a63
     tags:
       Environment: Testing
   register: ec2
