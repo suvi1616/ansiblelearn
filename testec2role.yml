@@ -2,24 +2,11 @@
   hosts: localhost
   become: 'yes'
 
+  roles:
+    - ec2create
   tasks:
     - name: 'checking connection via ping'
       action: ping
-
-    - name: start an instance with a public IP address
-      amazon.aws.ec2_instance:
-        region: us-east-1 
-        name: "ansible-test-instance"
-        key_name: "DevOps_Lab"
-        vpc_subnet_id: subnet-060c1f8bcdbb27356
-        instance_type: t3.small
-        security_group: DevOps_Bastion_SG
-        network:
-          assign_public_ip: true
-        image_id: ami-0b0dcb5067f052a63
-        tags:
-          Environment: Testing
-      register: ec2
 
     - name: Print the output
       debug:
@@ -34,4 +21,4 @@
   become: 'yes'
 
   roles:
-    - testrl
+    - swinstall
