@@ -3,5 +3,4 @@
     region: us-east-1 
     state: absent
     filters:
-      tag: Environment
-      value: Testing
+      tag:Environment: Testing
