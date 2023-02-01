@@ -1,0 +1,6 @@
+- name: myEC2DelPlaybook
+  hosts: localhost
+  become: 'yes'
+
+  roles:
+    - ec2del
